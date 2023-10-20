@@ -52,8 +52,9 @@ class schconfigs extends AbstractTable
             ->column('id', sortable: true)
             ->column('SchCode', sortable: true, canBeHidden:false)
             ->column('SchValue', sortable:true)
-            ->column('actions', canBeHidden:false, exportAs:false);
-
+            ->column('actions', canBeHidden:false, exportAs:false)
+            ->paginate(10);
+        
             // ->searchInput()
             // ->selectFilter()
             // ->withGlobalSearch()

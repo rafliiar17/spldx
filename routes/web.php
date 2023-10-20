@@ -51,8 +51,18 @@ Route::middleware('splade')->group(function () {
                     Route::get('/edit/{schconfig:id}', [SchconfigController::class, 'edit'])->name('edit');
                     Route::put('/edit/{schconfig:id}', [SchconfigController::class, 'update'])->name('update');
                     Route::delete('/destroy/{schconfig:id}', [SchconfigController::class, 'destroy'])->name('destroy');
-            });
-        });
-        });
+                     });
+                });
+                    Route::prefix('/class')->name('class.')->group(function () {
+                        Route::get('/', [SchconfigController::class,'index'])->name('index');
+                        Route::get('/class', [SchconfigController::class,'index'])->name('config');
+                        Route::get('/create', [SchconfigController::class,'create'])->name('create');
+                        Route::post('store', [SchconfigController::class,'store'])->name('store');
+                        Route::get('/edit/{schclasses:id}', [SchconfigController::class,'edit'])->name('edit');
+                        Route::get('/edit/{schclasses:id}', [SchconfigController::class,'update'])->name('update');
+                        Route::delete('/destroy/{schlasses:id}', [SchconfigController::class,'destroy'])->name('destroy');
+                        
+                    });
+        }   );
     require __DIR__.'/auth.php';
 });
