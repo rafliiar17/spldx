@@ -6,7 +6,7 @@ use App\Models\schconfig;
 use Illuminate\Http\Request;
 use ProtoneMedia\Splade\AbstractTable;
 use ProtoneMedia\Splade\SpladeTable;
-
+use Maatwebsite\Excel\Excel;
 class schconfigs extends AbstractTable
 {
     /**
@@ -49,17 +49,21 @@ class schconfigs extends AbstractTable
     {
         $table
             ->withGlobalSearch(columns: ['SchCode','SchValue'])
-            ->column('id', sortable: true)
-            ->column('SchCode', sortable: true, canBeHidden:false)
-            ->column('SchValue', sortable:true)
+            // ->column('id', sortable: true)
+            ->column('SchCode', sortable: true, canBeHidden:false ) 
+            ->column('SchValue', sortable:true, canBeHidden:false)
             ->column('actions', canBeHidden:false, exportAs:false)
-            ->paginate(10);
+            ->paginate(10)
         
             // ->searchInput()
             // ->selectFilter()
             // ->withGlobalSearch()
 
             // ->bulkAction()
-            // ->export()
+            ->export(
+                label: 'Excel export',
+                filename: 'config.xlsx',
+                type: Excel::XLSX
+            );
     }
 }
