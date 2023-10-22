@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sch_classes', function (Blueprint $table) {
+        Schema::create('schclasses', function (Blueprint $table) {
             $table->id();
-            $table->string('SchGrade',10);
-            $table->string('SchClass',10);
-            $table->string('SchClassStatus',10);
+            $table->string('schGrade',3);
+            $table->string('schClass',10);
+            $table->enum('schStatus', ['0','1'])->default('0');
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sch_classes');
+        Schema::dropIfExists('schclasses');
     }
 };

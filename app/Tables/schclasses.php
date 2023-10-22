@@ -2,12 +2,12 @@
 
 namespace App\Tables;
 
-use App\Models\schconfig;
+use App\Models\schclass;
 use Illuminate\Http\Request;
 use ProtoneMedia\Splade\AbstractTable;
 use ProtoneMedia\Splade\SpladeTable;
-use Maatwebsite\Excel\Excel;
-class schconfigs extends AbstractTable
+
+class schclasses extends AbstractTable
 {
     /**
      * Create a new instance.
@@ -36,7 +36,7 @@ class schconfigs extends AbstractTable
      */
     public function for()
     {
-        return schconfig::query();
+        return schclass::query();
     }
 
     /**
@@ -47,22 +47,20 @@ class schconfigs extends AbstractTable
      */
     public function configure(SpladeTable $table)
     {
-        $table
-            ->withGlobalSearch(columns: ['SchCode','SchValue'])
-            ->column('SchCode', sortable: true, canBeHidden:false ) 
-            ->column('SchValue', sortable:true, canBeHidden:false)
-            ->column('actions', canBeHidden:false, exportAs:false)
-            ->paginate(10)
         
+            $table
+            ->withGlobalSearch(columns: ['schGrade','schClass','schStatus'])
+            ->column('id', sortable: true)
+            ->column('schGrade', sortable: true)
+            ->column('schClass', sortable: true)
+            ->column('schStatus', sortable: true);
+
+
             // ->searchInput()
             // ->selectFilter()
             // ->withGlobalSearch()
 
             // ->bulkAction()
-            ->export(
-                label: 'Excel export',
-                filename: 'config.xlsx',
-                type: Excel::XLSX
-            );
+            // ->export()
     }
 }

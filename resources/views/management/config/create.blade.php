@@ -13,9 +13,9 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <x-splade-form :action="route('managements.configs.store')" class="max-w-md mx-auto py-4 px-6 bg-white rounded-md shadow-sm shadow-gray-300">
-                <x-splade-input name="SchCode" label="Name" class="pb-3"/>
+                <x-splade-input name="SchCode" label="Config" class="pb-3"/>
              
-                <x-splade-input name="SchValue" label="Slug" class="pb-3"/>
+                <x-splade-input name="SchValue" label="Name" class="pb-3"/>
              
                 <x-splade-submit class="mb-2 mt-3"/>
             </x-splade-form>

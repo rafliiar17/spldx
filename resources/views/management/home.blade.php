@@ -12,8 +12,11 @@
                                 <x-nav-link href="{{ route('managements.home') }}" :active="request()->routeIs('managements.home')">
                                     {{ __('Home') }}
                                 </x-nav-link>
-                                <x-nav-link href="{{ route('managements.configs.index') }}" :active="request()->is('managements.configs.index')">
+                                <x-nav-link href="{{ route('managements.configs.index') }}" :active="request()->routeIs('managements.configs.index')">
                                     {{ __('Config') }}
+                                </x-nav-link>
+                                <x-nav-link href="{{ route('managements.class.index') }}" :active="request()->routeIs('managements.class.index')">
+                                    {{ __('Class') }}
                                 </x-nav-link>
                             </div>
                         </div>

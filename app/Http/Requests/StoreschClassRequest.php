@@ -3,15 +3,16 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class StoreschClassRequest extends FormRequest
+class StoreSchclassRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +23,7 @@ class StoreschClassRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "schGrade"=>["required",Rule::unique("schclasses","schGrade")->ignore($this->route("schclass"))],
         ];
     }
 }

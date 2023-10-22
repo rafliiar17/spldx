@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SchClassController;
+use App\Http\Controllers\SchclassController as ControllersSchclassController;
 use App\Http\Controllers\SchconfigController;
 use App\Models\Schconfig;
 use Illuminate\Support\Facades\Route;
@@ -30,7 +32,7 @@ Route::middleware('splade')->group(function () {
     Route::spladeUploads();
 
     Route::get('/', function () {
-        return view('welcome');
+        return view('/auth/login');
     });
 
     Route::middleware('auth')->group(function () {
@@ -52,17 +54,18 @@ Route::middleware('splade')->group(function () {
                     Route::put('/edit/{schconfig:id}', [SchconfigController::class, 'update'])->name('update');
                     Route::delete('/destroy/{schconfig:id}', [SchconfigController::class, 'destroy'])->name('destroy');
                      });
-                });
-                    Route::prefix('/class')->name('class.')->group(function () {
-                        Route::get('/', [SchconfigController::class,'index'])->name('index');
-                        Route::get('/class', [SchconfigController::class,'index'])->name('config');
-                        Route::get('/create', [SchconfigController::class,'create'])->name('create');
-                        Route::post('store', [SchconfigController::class,'store'])->name('store');
-                        Route::get('/edit/{schclasses:id}', [SchconfigController::class,'edit'])->name('edit');
-                        Route::get('/edit/{schclasses:id}', [SchconfigController::class,'update'])->name('update');
-                        Route::delete('/destroy/{schlasses:id}', [SchconfigController::class,'destroy'])->name('destroy');
+                     Route::prefix('/class')->name('class.')->group(function () {
+                        Route::get('/', [SchclassController::class,'index'])->name('index');
+                        Route::get('/class', [SchclassController::class,'index'])->name('class');
+                        Route::get('/create', [SchclassController::class,'create'])->name('create');
+                        Route::post('store', [SchclassController::class,'store'])->name('store');
+                        Route::get('/edit/{schclasses:id}', [SchclassController::class,'edit'])->name('edit');
+                        Route::get('/edit/{schclasses:id}', [SchclassController::class,'update'])->name('update');
+                        Route::delete('/destroy/{schlasses:id}', [SchclassController::class,'destroy'])->name('destroy');
                         
                     });
+                });
+                    
         }   );
     require __DIR__.'/auth.php';
 });

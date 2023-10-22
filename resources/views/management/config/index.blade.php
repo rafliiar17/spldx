@@ -15,6 +15,9 @@
                                 <x-nav-link href="{{ route('managements.configs.index') }}" :active="request()->routeIs('managements.configs.*')">
                                     {{ __('Config') }}
                                 </x-nav-link>
+                                <x-nav-link href="{{ route('managements.class.index') }}" :active="request()->routeIs('managements.class.index')">
+                                    {{ __('Class') }}
+                                </x-nav-link>
                             </div>
                             
                         </div>
