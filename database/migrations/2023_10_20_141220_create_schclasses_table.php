@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('schclasses', function (Blueprint $table) {
             $table->id();
-            $table->string('schGrade',3);
+            $table->string('schGrade',10);
             $table->string('schClass',10);
-            $table->enum('schStatus', ['0','1'])->default('0');
+            $table->enum('schStatus', ['0','1'])->default('1');
             $table->timestamps();
         });
     }

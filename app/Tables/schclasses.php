@@ -4,8 +4,9 @@ namespace App\Tables;
 
 use App\Models\schclass;
 use Illuminate\Http\Request;
-use ProtoneMedia\Splade\AbstractTable;
+use Maatwebsite\Excel\Excel;
 use ProtoneMedia\Splade\SpladeTable;
+use ProtoneMedia\Splade\AbstractTable;
 
 class schclasses extends AbstractTable
 {
@@ -50,11 +51,17 @@ class schclasses extends AbstractTable
         
             $table
             ->withGlobalSearch(columns: ['schGrade','schClass','schStatus'])
-            ->column('id', sortable: true)
-            ->column('schGrade', sortable: true)
-            ->column('schClass', sortable: true)
-            ->column('schStatus', sortable: true);
-
+            // ->column('id', sortable: true)
+            ->column(key:'schGrade',label: 'Grades', sortable: true)
+            ->column(key:'schClass',label: 'Class', sortable: true)
+            ->column(key:'schStatus', label:'Status',sortable: true)
+            ->column('actions', canBeHidden:false, exportAs:false)
+            ->paginate(10)
+            ->export(
+                label: 'Excel export',
+                filename: 'config.xlsx',
+                type: Excel::XLSX
+            );
 
             // ->searchInput()
             // ->selectFilter()

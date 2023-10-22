@@ -31,7 +31,7 @@ class UpdateSchconfigRequest extends FormRequest
             ],
             "SchValue" => [
                 "required",
-                Rule::unique("schconfigs","SchCode")->ignore($id)
+                Rule::unique("schconfigs","SchValue")->ignore($id)
             ]
         ];
     }

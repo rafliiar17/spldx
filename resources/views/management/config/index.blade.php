@@ -15,7 +15,7 @@
                                 <x-nav-link href="{{ route('managements.configs.index') }}" :active="request()->routeIs('managements.configs.*')">
                                     {{ __('Config') }}
                                 </x-nav-link>
-                                <x-nav-link href="{{ route('managements.class.index') }}" :active="request()->routeIs('managements.class.index')">
+                                <x-nav-link href="{{ route('managements.classes.index') }}" :active="request()->routeIs('managements.classes.index')">
                                     {{ __('Class') }}
                                 </x-nav-link>
                             </div>
@@ -52,7 +52,7 @@
                 <x-splade-table :for="$schconfig">
                     <x-splade-cell actions as="$schconfig">
                         <Link href="{{ route('managements.configs.edit', $schconfig->id) }}" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md font-semibold hover:bg-gray-400 hover:shadow-md hover:shadow-gray-200 hover:text-white mr-3"> Edit </Link>
-                        <Link confirm="Hapus Category" confirm-text="Apakah kamu yakin akan menghapusnya?" confirm-button="Ya, hapus" cancel-button="Batal" href="{{ route('managements.configs.destroy', $schconfig->id) }}" method="DELETE" class="px-4 py-2 bg-slate-700 text-white rounded-md hover:bg-slate-500 hover:shadow-md hover:shadow-slate-300"> Hapus </Link>
+                        <Link confirm="Hapus Config" confirm-text="Apakah kamu yakin akan menghapusnya?" confirm-button="Ya, hapus" cancel-button="Batal" href="{{ route('managements.configs.destroy', $schconfig->id) }}" method="DELETE" class="px-4 py-2 bg-slate-700 text-white rounded-md hover:bg-slate-500 hover:shadow-md hover:shadow-slate-300"> Hapus </Link>
                     </x-splade-cell>
                 </x-splade-table>
                 
