@@ -7,7 +7,7 @@
                     <!-- Logo -->
                     <div class="shrink-0 flex items-center">
                         <Link href="{{ route('dashboard') }}">
-                            <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                            <img src="{{ asset('logo/logo.png') }}" alt="PintuSekolah" class="w-15 h-12 fill-current text-blue-500 flex" />
                         </Link>
                     </div>
 

@@ -1,10 +1,10 @@
-<div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
+<div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-blue">
     <div>
         @isset($logo)
             {{ $logo }}
         @else
             <Link href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                <img src="{{ asset('logo/logo.png') }}" alt="PintuSekolah" class="w-27 h-20 fill-current text-blue-500 flex" />
             </Link>
         @endisset
     </div>

@@ -24,10 +24,7 @@ class UpdateSchgradeRequest extends FormRequest
     {
             $id = $this->route('managements.grades.update');
         return [
-            "SchClass" => [
-                "required",
-                Rule::unique("schgrades","SchClass")->ignore($id)
-            ],
+            "SchClass",
             "SchStatus"
         ];
     }
