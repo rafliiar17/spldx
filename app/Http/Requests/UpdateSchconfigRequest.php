@@ -25,10 +25,10 @@ class UpdateSchconfigRequest extends FormRequest
         $id = $this->route('managements.configs.update');
 
         return [
-            "SchCode" => [
-                "required",
-                Rule::unique("schconfigs","SchCode")->ignore($id),
-            ],
+            // "SchCode" => [
+            //     // "required",
+            //     Rule::unique("schconfigs","SchCode")->ignore($id),
+            // ],
             "SchValue" => [
                 "required",
                 Rule::unique("schconfigs","SchValue")->ignore($id)

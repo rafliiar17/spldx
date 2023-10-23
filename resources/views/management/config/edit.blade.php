@@ -13,7 +13,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <x-splade-form :default="$schconfig" method="PUT" :action="route('managements.configs.update', $schconfig->id)" class="max-w-md mx-auto py-4 px-6 bg-white rounded-md shadow-sm shadow-gray-300">
-                <x-splade-input name="SchCode" label="Code" class="pb-3"/>
+                <x-splade-input name="SchCode" disabled label="Code" class="pb-3"/>
              
                 <x-splade-input name="SchValue" label="Name" class="pb-3"/>
              
