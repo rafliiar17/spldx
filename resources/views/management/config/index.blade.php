@@ -9,7 +9,7 @@
                 </x-navlinku>            
                         </div>
                         <div class="content-stretch">
-                            <Link href="{{ route('managements.configs.create') }}" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md font-semibold hover:bg-gray-400 shadow-md shadow-slate-200 hover:text-white items-center">
+                            <Link href="{{ route('managements.configs.create') }}" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md font-semibold hover:bg-green-400 shadow-md shadow-slate-200 hover:text-white items-center">
                                 New Config
                                 </Link>
                             </div>
@@ -18,17 +18,6 @@
                     </nav>
                     
                 </x-splade-data>
-        {{-- <div class="flex justify-between">
-            <div class=" space-x-1 sm:-my-px sm:ml-10 sm:flex">
-                <x-nav-link href="{{ route('managements.home') }}" :active="request()->routeIs('managements.home')">
-                    {{ __('Home') }}
-                </x-nav-link>
-                <x-nav-link href="{{ route('managements.configs.index') }}" :active="request()->is('managements.configs.index')">
-                    {{ __('Config') }}
-                </x-nav-link>
-            </div>
-             --}}
-            
     </x-slot>
 
     
@@ -38,8 +27,8 @@
             <div class="p-6 shadow-md bg-white">
                 <x-splade-table :for="$schconfig">
                     <x-splade-cell actions as="$schconfig">
-                        <Link href="{{ route('managements.configs.edit', $schconfig->id) }}" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md font-semibold hover:bg-gray-400 hover:shadow-md hover:shadow-gray-200 hover:text-white mr-3"> Edit </Link>
-                        <Link confirm="Hapus Config" confirm-text="Apakah kamu yakin akan menghapusnya?" confirm-button="Ya, hapus" cancel-button="Batal" href="{{ route('managements.configs.destroy', $schconfig->id) }}" method="DELETE" class="px-4 py-2 bg-slate-700 text-white rounded-md hover:bg-slate-500 hover:shadow-md hover:shadow-slate-300"> Hapus </Link>
+                        <Link href="{{ route('managements.configs.edit', $schconfig->id) }}" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md font-semibold hover:bg-yellow-400 hover:shadow-md hover:shadow-slate-200 hover:text-white mr-3"> Edit </Link>
+                        <Link confirm="Hapus Config" confirm-text="Apakah kamu yakin akan menghapusnya?" confirm-button="Ya, hapus" cancel-button="Batal" href="{{ route('managements.configs.destroy', $schconfig->id) }}" method="DELETE" class="px-4 py-2 bg-slate-700 text-white rounded-md hover:bg-red-500 hover:shadow-md hover:shadow-slate-300"> Hapus </Link>
                     </x-splade-cell>
                 </x-splade-table>
                 
