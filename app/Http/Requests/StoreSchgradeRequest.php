@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateSchconfigRequest extends FormRequest
+class StoreSchgradeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,13 +22,9 @@ class UpdateSchconfigRequest extends FormRequest
      */
     public function rules(): array
     {
-        $id = $this->route('managements.configs.update');
-
         return [
-            "SchValue" => [
-                "required",
-                Rule::unique("schconfigs","SchValue")->ignore($id)
-            ]
+            "SchGrade"=> 'required',
+            "SchClass"=> 'required'
         ];
     }
 }

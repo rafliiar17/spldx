@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SchClassController;
 use App\Http\Controllers\SchclassController as ControllersSchclassController;
 use App\Http\Controllers\SchconfigController;
+use App\Http\Controllers\SchgradeController;
 use App\Models\Schconfig;
 use App\Models\Schclass;
 use Illuminate\Support\Facades\Route;
@@ -45,26 +46,27 @@ Route::middleware('splade')->group(function () {
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
         Route::prefix('/management')->name('managements.')->group(function () {
-                Route::get('/home', [SchconfigController::class, 'home' ])->name('home');
-                 Route::prefix('/config')->name('configs.')->group(function () {
+                    Route::get('/home', [SchconfigController::class, 'home' ])->name('home');
+                Route::prefix('/config')->name('configs.')->group(function () {
                     Route::get('/', [SchconfigController::class, 'index'])->name('index');
                     Route::get('/create', [SchconfigController::class, 'create'])->name('create');
                     Route::post('/store', [SchconfigController::class, 'store'])->name('store');
                     Route::get('/edit/{schconfig:id}', [SchconfigController::class, 'edit'])->name('edit');
-                    Route::put('/edit/{schconfig:id}', [SchconfigController::class, 'update'])->name('update');
+                        Route::put('/edit/{schconfig:id}', [SchconfigController::class, 'update'])->name('update');
                     Route::delete('/destroy/{schconfig:id}', [SchconfigController::class, 'destroy'])->name('destroy');
                      });
-                     Route::prefix('/class')->name('classes.')->group(function () {
-                        Route::get('/', [SchclassController::class,'index'])->name('index');
-                        Route::get('/create', [SchclassController::class,'create'])->name('create');
-                        Route::post('store', [SchclassController::class,'store'])->name('store');
-                        Route::get('/edit/{schclass:id}', [SchclassController::class,'edit'])->name('edit');
-                        Route::put('/edit/{schclass:id}', [SchclassController::class,'update'])->name('update');
-                        Route::delete('/destroy/{cldel:id}',[SchclassController::class,'destroy'])->name('destroy');
-                        
-                    });
+                
+                Route::prefix('/grade')->name('grades.')->group(function () {
+                    Route::get('/', [SchgradeController::class, 'index'])->name('index');
+                    Route::get('/create', [SchgradeController::class,'create'])->name('create');
+                    Route::post('/store', [SchgradeController::class, 'store'])->name('store');
+                    Route::get('/edit/{schgrade:id}', [SchgradeController::class, 'edit'])->name('edit');
+                        Route::put('/edit/{schgrade:id}', [SchgradeController::class, 'update'])->name('update');
+                    Route::delete('/destroy/{schgrade:id}', [SchgradeController::class, 'destroy'])->name('destroy');
+
                 });
-                    
-        }   );
+                // add prefix in here
+            });
+        });
     require __DIR__.'/auth.php';
 });

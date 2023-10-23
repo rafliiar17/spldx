@@ -9,4 +9,7 @@
                 <x-nav-link href="{{ route('managements.configs.index') }}" :active="request()->routeIs('managements.configs.index')">
                     {{ __('Config') }}
                 </x-nav-link>
+                <x-nav-link href="{{ route('managements.grades.index') }}" :active="request()->routeIs('managements.grades.index')">
+                    {{ __('Grade/Class') }}
+                </x-nav-link>
         </div>
