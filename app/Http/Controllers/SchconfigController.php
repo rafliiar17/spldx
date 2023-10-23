@@ -33,7 +33,7 @@ class SchconfigController extends Controller
     public function create()
     {
         return view('management.config.create',[
-            'mccreate'=> Schconfig::class
+            'schconfig'=> Schconfig::class
             ]);
     }
 

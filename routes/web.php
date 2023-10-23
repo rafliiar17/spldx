@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SchClassController;
 use App\Http\Controllers\SchclassController as ControllersSchclassController;
 use App\Http\Controllers\SchconfigController;
+use App\Http\Controllers\SchcourseController;
 use App\Http\Controllers\SchgradeController;
 use App\Models\Schconfig;
 use App\Models\Schclass;
@@ -64,6 +65,14 @@ Route::middleware('splade')->group(function () {
                         Route::put('/edit/{schgrade:id}', [SchgradeController::class, 'update'])->name('update');
                     Route::delete('/destroy/{schgrade:id}', [SchgradeController::class, 'destroy'])->name('destroy');
 
+                });
+                Route::prefix('/course')->name('courses.')->group(function () {
+                    Route::get('/', [SchcourseController::class,'index'])->name('index');
+                    Route::get('/create', [SchcourseController::class, 'create'])->name('create');
+                    Route::post('/store', [SchcourseController::class, 'store' ])->name('store');
+                    Route::get('/edit/{schcourse:id}', [SchcourseController::class, 'edit'])->name('edit');
+                        Route::put('/edit/{schcourse:id}', [SchcourseController::class,'update'])->name('update');
+                    Route::delete('/destroy/{schcourse:id}', [SchcourseController::class, 'destroy'])->name('destroy');
                 });
                 // add prefix in here
             });

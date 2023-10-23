@@ -12,4 +12,7 @@
                 <x-nav-link href="{{ route('managements.grades.index') }}" :active="request()->routeIs('managements.grades.index')">
                     {{ __('Grade/Class') }}
                 </x-nav-link>
+                <x-nav-link href="{{ route('managements.courses.index') }}" :active="request()->routeIs('managements.courses.index')">
+                    {{ __('Courses') }}
+                </x-nav-link>
         </div>
