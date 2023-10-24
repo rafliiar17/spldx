@@ -10,8 +10,8 @@
         </div>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="py-10">
+        <div class="max-w-10xl mx-auto sm:px-6 lg:px-8 rounded-xl">
             <x-splade-form :default="$schgrade" method="PUT" :action="route('managements.grades.update', $schgrade->id)" class="max-w-md mx-auto py-4 px-6 bg-white rounded-md shadow-sm shadow-gray-300">
                 <x-splade-input name="SchGrade" disabled label="Grades" class="pb-3"/>
              

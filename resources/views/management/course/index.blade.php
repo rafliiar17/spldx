@@ -10,7 +10,7 @@
                         </div>
                         <div class="content-stretch">
                             <Link href="{{ route('managements.courses.create') }}" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md font-semibold hover:bg-green-400 shadow-md shadow-slate-200 hover:text-white items-center">
-                                New Course
+                                Add Data
                                 </Link>
                             </div>
                         </div>
@@ -22,9 +22,9 @@
 
     
 
-    <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="p-6 shadow-md bg-white">
+    <div class="py-10">
+            <div class="max-w-10xl mx-auto sm:px-6 lg:px-8">
+            <div class="p-6 shadow-md bg-white rounded-xl">
                 <x-splade-table :for="$schcourses">
                     <x-splade-cell SchCourseStatus as="$schcourses">
                         @if ($schcourses->SchCourseStatus==0)

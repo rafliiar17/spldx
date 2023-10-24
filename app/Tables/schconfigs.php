@@ -49,6 +49,7 @@ class schconfigs extends AbstractTable
     {
         $table
             ->withGlobalSearch(columns: ['SchCode','SchValue'])
+            ->column('no')
             ->column('SchCode', label: 'Code', sortable: true, canBeHidden:false ) 
             ->column('SchValue', label: 'Value', sortable:true, canBeHidden:false)
             ->column('actions', canBeHidden:false, exportAs:false)
