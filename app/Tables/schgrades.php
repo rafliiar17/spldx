@@ -51,9 +51,9 @@ class schgrades extends AbstractTable
         $table
             ->withGlobalSearch(columns: ['SchGrade','SchClass','SchStatus'])
             // ->column('id', sortable: true)
-            ->column('SchGrade', sortable: true)
-            ->column('SchClass', sortable: true)
-            ->column('SchStatus', sortable: true)
+            ->column('SchGrade', label: 'Grade',sortable: true)
+            ->column('SchClass', label: 'Class', sortable: true)
+            ->column('SchStatus', label: 'Status',sortable: true)
             ->selectFilter(key: 'SchStatus', label: 'Status', options: [
                 '0' => 'Non-Active',
                 '1' => 'Active',

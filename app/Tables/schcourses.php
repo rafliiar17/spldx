@@ -49,8 +49,8 @@ class schcourses extends AbstractTable
     {
         $table
             ->withGlobalSearch(columns: ['SchCourseName','SchCourseStatus'])
-            ->column('SchCourseName', sortable: true)
-            ->column('SchCourseStatus', sortable: true)
+            ->column('SchCourseName', label:'Course',sortable: true)
+            ->column('SchCourseStatus', label: 'Status',sortable: true)
             ->column('actions', canBeHidden:false, exportAs:false)
             ->paginate(10);
 
