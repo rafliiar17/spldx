@@ -6,8 +6,10 @@ use App\Http\Controllers\SchclassController as ControllersSchclassController;
 use App\Http\Controllers\SchconfigController;
 use App\Http\Controllers\SchcourseController;
 use App\Http\Controllers\SchgradeController;
+use App\Http\Controllers\SchstudentController;
 use App\Models\Schconfig;
 use App\Models\Schclass;
+use App\Models\Schstudent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -74,8 +76,16 @@ Route::middleware('splade')->group(function () {
                         Route::put('/edit/{schcourse:id}', [SchcourseController::class,'update'])->name('update');
                     Route::delete('/destroy/{schcourse:id}', [SchcourseController::class, 'destroy'])->name('destroy');
                 });
-                // add prefix in here
+                Route::prefix('/student')->name('students.')->group(function () {
+                    Route::get('/', [SchstudentController::class, 'index'])->name('index');
+                    Route::get('/create', [SchstudentController::class, 'create' ])->name('create');
+                    Route::post('store', [SchstudentController::class, 'store' ])->name('store');
+                    Route::get('/edit/{schstudents:id}', [SchstudentController::class, 'edit' ])->name('edit');
+                        Route::put('/edit/{schstudents:id}', [SchstudentController::class, 'update'])->name('update');
+                    Route::delete('/destroy/{schstudents:id}', [SchstudentController::class,'destroy'])->name('destroy'); 
             });
         });
+            // add prefix in here
+    });
     require __DIR__.'/auth.php';
 });
